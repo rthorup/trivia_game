@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Trivia test</title>
+    <link href="firstRun.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="header">
+      <h1 class="headerText">Welcome to absolutely worthless Trivia!</h1>
+    </div>
+    <div class="bigContainer">
+      <div class="choiceBox">
+        <div class="categorySelect">
+          <label class="l1" for="categorySelector">Choose your category</label>
+          <select class="categorySelector" id="categorySelector">
+            <option value="any">Any Category</option>
+            <option value="11">Entertainment: Film</option>
+            <option value="14">Entertainment: TV</option>
+            <option value="9">General Knowledge</option>
+            <option value="22">Geography</option>
+            <option value="23">History</option>
+            <option value="17">Science and Nature</option>
+          </select>
+        </div>
+        <div class="difficulty">
+          <label class="l2" for="difficultySelector">Choose your difficulty</label>
+          <select class="difficultySelector" id="difficultySelector">
+            <option value="blank"></option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+        <div class="goButton">
+          <button class="gButton" id="go">Go!</button>
+        </div>
+      </div>
+      <div class="twoBoxes">
+        <div class="leftBox">
+          <div class="category">
+            <h1 id="category">Filler Category<h1>
+          </div>
+          <div class="question">
+            <h1 id="question">This is our filler question.  What do you think the answer is?</h1>
+          </div>
+          <div class="answerBox">
+            <div class="answer">
+              <h1 id="answer1">This is an answer</h1>
+            </div>
+            <div class="answer">
+              <h1  id="answer2">This is an answer</h1>
+            </div>
+            <div class="answer">
+              <h1  id="answer3">This is an answer</h1>
+            </div>
+            <div class="answer">
+              <h1 id="answer4">This is an answer</h1>
+            </div>
+            <div class="button">
+            <button id="newQuestion">Click for new Question</button>
+            </div>
+          </div>
+        </div>
+        <div class="rightBox">
+          <div class="scoreBox">
+              <h1>Score</h1>
+              <h1>0</h1>
+          </div>
+          <div class="topScore">
+              <h1>High Score</h1>
+              <h1>0</h1>
+          </div>
+          <div class="resetButton">
+            <button id="reset">Reset your high score</button>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+    </div>
+  </body>
+  <script type="text/javascript" src="firstRun.js"></script>
+</html>
