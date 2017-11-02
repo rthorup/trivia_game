@@ -4,31 +4,23 @@ let data = {};
 
 //function to load trivia game
 let triviaStart = function (data){
-  console.log(data.results[0]);
   let category = data.results[0].category;
-  console.log(category);
   let question = data.results[0].question;
-  console.log(question)
-  console.log(data.results[0].incorrect_answers);
-  console.log(data.results[0].correct_answer);
-
   let correct = data.results[0].correct_answer;
   let wrong1 = data.results[0].incorrect_answers[0];
   let wrong2 = data.results[0].incorrect_answers[1];
   let wrong3 = data.results[0].incorrect_answers[2];
-
   let randomArray = [correct, wrong1, wrong2, wrong3];
-    console.log(randomArray);
   let answerList = randomArray.sort();
-  console.log(answerList);
-
   document.getElementById('category').innerHTML = category;
   document.getElementById('question').innerHTML = question;
-
   document.getElementById('answer1').innerHTML = answerList[0];
   document.getElementById('answer2').innerHTML = answerList[1];
   document.getElementById('answer3').innerHTML = answerList[2];
   document.getElementById('answer4').innerHTML = answerList[3];
+//making sure the counter gets reset for the new question button
+  questionCounter = 1;
+  return questionCounter;
 }
 
 //trying to capture the category value to use in url equation
@@ -98,31 +90,47 @@ ajaxRequest.onreadystatechange = function(){
 ajaxRequest.open("GET", url , true);
 ajaxRequest.send();
  }
+//setting a counter for the new question button so that a new AJAX call has to be made to get new questions.
+let questionCounter = 1;
+let qButton = document.getElementById('newQuestion');
+qButton.addEventListener('click', function() {
+  if (questionCounter <=20) {
+    let category = data.results[questionCounter].category;
+    let question = data.results[questionCounter].question;
+    let correct = data.results[questionCounter].correct_answer;
+    let wrong1 = data.results[questionCounter].incorrect_answers[0];
+    let wrong2 = data.results[questionCounter].incorrect_answers[1];
+    let wrong3 = data.results[questionCounter].incorrect_answers[2];
+    let randomArray = [correct, wrong1, wrong2, wrong3];
+    let answerList = randomArray.sort();
+    document.getElementById('category').innerHTML = category;
+    document.getElementById('question').innerHTML = question;
+    document.getElementById('answer1').innerHTML = answerList[0];
+    document.getElementById('answer2').innerHTML = answerList[1];
+    document.getElementById('answer3').innerHTML = answerList[2];
+    document.getElementById('answer4').innerHTML = answerList[3];
 
+    let answer1 = document.getElementById('answer1');
+    let answer2 = document.getElementById('answer2');
+    let answer3 = document.getElementById('answer3');
+    let answer4 = document.getElementById('answer4');
 
+    answer1.addEventListener ('click', function() {
+      if (answer1.textContent === correct) {
+        console.log('correct!')
+      }
+      else {
+        console.log('fail')
+      }
+    });
+    console.log(answer1.textContent);
+    console.log(data.results[questionCounter].correct_answer)
 
-
-// let category = data.results[0].category;
-// console.log(category);
-// let question = data.results[0].question;
-// console.log(question)
-// console.log(data.results[0].incorrect_answers);
-// console.log(data.results[0].correct_answer);
-//
-// let correct = data.results[0].correct_answer;
-// let wrong1 = data.results[0].incorrect_answers[0];
-// let wrong2 = data.results[0].incorrect_answers[1];
-// let wrong3 = data.results[0].incorrect_answers[2];
-//
-// let randomArray = [correct, wrong1, wrong2, wrong3];
-//   console.log(randomArray);
-// let answerList = randomArray.sort();
-// console.log(answerList);
-//
-// document.getElementById('category').innerHTML = category;
-// document.getElementById('question').innerHTML = question;
-//
-// document.getElementById('answer1').innerHTML = answerList[0];
-// document.getElementById('answer2').innerHTML = answerList[1];
-// document.getElementById('answer3').innerHTML = answerList[2];
-// document.getElementById('answer4').innerHTML = answerList[3];
+    console.log(questionCounter)
+    questionCounter++
+  }
+    else {
+      console.log('no more questions')
+      alert('Please pick a new category/difficulty');
+    }
+});
