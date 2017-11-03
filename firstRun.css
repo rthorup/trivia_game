@@ -2,14 +2,29 @@
   border: 1px solid black;
   font-family: monospace;
 }
+@font-face {
+    font-family: 'Scoreboard';
+    src: url(scoreboard.ttf);
+}
 
+@@font-face {
+  font-family: 'Draco';
+  src: url(draco.ttf);
+}
 h1 {
 
+}
+.body{
+  background-color: #242526;
+}
+.bigContainer {
+  background-color: #242526;
 }
 .header {
   width: 80%;
   margin: auto;
   text-align: center;
+  background-color: #1A7CFA;
 }
 
 .choiceBox {
@@ -17,9 +32,8 @@ h1 {
   width: 80%;
   margin: auto;
   justify-content: center;
+  background-color: white;
 }
-
-
 
 .categorySelect {
   flex: 10;
@@ -70,6 +84,7 @@ h1 {
   flex: 3;
   margin-right: 2em;
   text-align: center;
+  background-color: #686361;
 }
 
 .rightBox {
@@ -81,8 +96,22 @@ h1 {
   align-items: center;
   text-align: center;
   padding: 1em;
+  background-color: #686361;
 }
 
+.category1 {
+  background-color: #E32227;
+  margin: .5em 1em .5em 1em;
+  border: 5px solid white;
+
+}
+
+.question1 {
+  background-color: #E32227;
+  margin: 0;
+  border: 5px solid white;
+
+}
 .answerBox {
   display: flex;
   flex-wrap: wrap;
@@ -93,23 +122,72 @@ h1 {
 .answer {
   flex-wrap: wrap;
   margin: .5em 1em .5em 1em;
-  width: 45%;
-}
+  width: 40%;
+  background-color: #1A7CFA;
+  padding-top: 0;
+  border: 5px solid white;
+  color:black;
 
+}
+.answer:hover {
+  background-color: #145bb7;
+}
 .scoreBox {
   flex: 3;
   margin: 1em;
   width: 80%;
+  background-color: black;
+  color:red;
+  font-family: 'Scoreboard';
+}
+
+.cScore {
+  font-family: 'Scoreboard';
+  font-size: 4em;
+  color: red;
+  margin: 0;
 }
 
 .topScore {
   flex: 3;
   margin: 1em;
   width: 80%;
+  background-color: black;
+  color: red;
+
+}
+
+.hScore {
+  font-family: 'Scoreboard';
+  font-size: 4em;
+  margin: 0;
 }
 
 .resetButton {
   flex: 1;
   width: 80%;
+  background-color: grey;
+  color: white;
+  border: 2px solid white;
+}
 
+
+
+.blockBox {
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 1000;
+  opacity: .2;
+  pointer-events: none;
+}
+
+input {
+  background-color: blue;
+  color: white;
+  border: 2px solid white;
+}
+
+select {
+  background-color: black;
+  color: blue;
 }
